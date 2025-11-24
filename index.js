@@ -38,7 +38,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/products', productRoutes);
 
 // ===== MONGODB =====
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log('✅ Conectado a MongoDB'))
   .catch(err => {
     console.error('❌ Error MongoDB:', err.message);
