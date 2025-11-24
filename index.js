@@ -20,11 +20,12 @@ const PORT = process.env.PORT || 3000;
 
 // ===== MIDDLEWARES =====
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5500',
+  origin: process.env.FRONTEND_URL === '*' ? '*' : process.env.FRONTEND_URL,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 
 app.use(express.json());
 app.use(cookieParser());
