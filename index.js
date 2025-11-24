@@ -27,6 +27,16 @@ app.use(cors({
 }));
 
 
+// ===== RUTA RAÍZ (para verificar que el servidor funciona) =====
+app.get('/', (req, res) => {
+  res.json({ 
+    message: '✅ Backend funcionando correctamente',
+    status: 'online',
+    timestamp: new Date().toISOString()
+  });
+});
+
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../frontend')));
